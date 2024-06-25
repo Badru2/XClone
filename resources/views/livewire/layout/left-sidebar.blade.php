@@ -118,7 +118,7 @@ new class extends Component {
     </div>
 </nav> --}}
 
-<div id="left-sidebar" class="w-[21%] fixed min-h-screen px-12 border-r border-gray-800 flex flex-col justify-between">
+<div id="left-sidebar" class="w-[310px] fixed min-h-screen px-12 border-r border-gray-800 flex flex-col justify-between">
     <div>
         <ul class="pt-4 space-y-5 text-[21px]">
             <li>

@@ -14,7 +14,25 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        ::-webkit-scrollbar {
+            background: black;
+        }
 
+        ::-webkit-scrollbar-thumb:hover {
+            background: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #434344;
+            border-radius: 15px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #181524;
+        }
+    </style>
 </head>
 
 <body class="font-sans antialiased text-white dark:bg-black">
@@ -32,8 +50,10 @@
         <!-- Page Content -->
         <main class="mx-auto max-w-[1330px] relative">
             <livewire:layout.left-sidebar />
-            {{ $slot }}
             <livewire:layout.right-sidebar />
+            <div class="ms-[310px] w-[600px]">
+                {{ $slot }}
+            </div>
         </main>
     </div>
 
