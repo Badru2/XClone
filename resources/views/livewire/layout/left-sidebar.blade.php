@@ -175,13 +175,15 @@ new class extends Component {
         </div>
     </div>
 
-    <div class="flex py-3 space-x-2 transition duration-75 hover:delay-100 hover:bg-gray-900">
-        <div>
-            <div class="w-12 h-12 bg-gray-400 rounded-full"></div>
+    @if (Auth::user())
+        <div class="flex py-3 space-x-2 transition duration-75 hover:delay-100 hover:bg-gray-900">
+            <div>
+                <div class="w-12 h-12 bg-gray-400 rounded-full"></div>
+            </div>
+            <div class="flex flex-col">
+                <a href="" class="font-bold">{{ Auth::user()->name }}</a>
+                <a href="" class="text-gray-500">{{ Auth::user()->email }}</a>
+            </div>
         </div>
-        <div class="flex flex-col">
-            <a href="" class="font-bold">{{ Auth::user()->name }}</a>
-            <a href="" class="text-gray-500">{{ Auth::user()->email }}</a>
-        </div>
-    </div>
+    @endif
 </div>
