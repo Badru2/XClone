@@ -8,15 +8,16 @@ use Illuminate\Support\Facades\Auth;
 
 class TweetController extends Controller
 {
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
-            'file' => 'nullable|file|mimes:jpeg,png,jpg,webp,gif,svg',
+            'file' => 'nullable|mimes:jpeg,png,jpg,webp,gif,svg',
             'content' => 'nullable|max:400',
         ]);
 
         $file = $request->file('file');
 
-        if($file) {
+        if ($file) {
             $file->storeAs('public/tweets', $file->hashName());
             $filePath = $file->hashName();
         } else {

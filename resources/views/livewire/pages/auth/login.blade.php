@@ -77,7 +77,7 @@ new #[Layout('layouts.guest')] class extends Component {
     <div id="hs-vertically-centered-modal"
         class="hs-overlay hidden size-full bg-blue-500 bg-opacity-5 fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none">
         <div
-            class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-2xl sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
+            class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-xl sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
             <div
                 class="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-black dark:border-neutral-700 dark:shadow-neutral-700/70">
                 <div class="flex relative items-center py-3 px-4">
@@ -96,55 +96,64 @@ new #[Layout('layouts.guest')] class extends Component {
                         <iconify-icon icon="ri:twitter-x-fill" width="40px" class="text-white"></iconify-icon>
                     </h3>
                 </div>
-                <div class="p-4 overflow-y-auto w-[80%] mx-auto">
-                    <h1 class="text-2xl font-bold">Sign in to X</h1>
+                <div class="p-4 overflow-y-auto w-[70%] mx-auto flex flex-col justify-center text-center">
+                    <div class="space-y-5">
+                        <h1 class="text-2xl font-bold text-start">Sign in to X</h1>
 
-                    <div
-                        class="px-5 items-center flex justify-center py-2 hover:cursor-pointer bg-white text-center rounded-full text-black">
-                        <iconify-icon icon="devicon:google" class="me-1"></iconify-icon>
-                        Sign up with Google
+                        <div
+                            class="px-5 items-center flex justify-center py-2 hover:cursor-pointer bg-white text-center rounded-full text-black">
+                            <iconify-icon icon="devicon:google" class="me-1"></iconify-icon>
+                            Sign up with Google
+                        </div>
+
+                        <div
+                            class="px-5 mt-1 items-center font-bold flex justify-center py-2 hover:cursor-pointer text-center bg-white rounded-full text-black">
+                            <iconify-icon icon="ic:baseline-apple" class="" width="24px"></iconify-icon>
+                            Sign up with Apple
+                        </div>
+
+                        <div class="flex items-center">
+                            <hr class="w-full">
+                            </hr>
+                            <p class="bg-black px-2">or</p>
+                            <hr class="w-full">
+                            </hr>
+                        </div>
                     </div>
 
-                    <div
-                        class="px-5 mt-1 items-center font-bold flex justify-center py-2 hover:cursor-pointer text-center bg-white rounded-full text-black">
-                        <iconify-icon icon="ic:baseline-apple" class="" width="24px"></iconify-icon>
-                        Sign up with Apple
-                    </div>
-
-                    <div class="flex items-center">
-                        <hr class="w-full">
-                        </hr>
-                        <p class="bg-black px-2">or</p>
-                        <hr class="w-full">
-                        </hr>
-                    </div>
-
-                    <form action="">
-                        <input type="text" placeholder="Phone, email, or username"
-                            class="px-5 py-2 rounded-md border border-slate-700 w-full bg-black">
+                    <form wire:submit='login' class="space-y-5">
+                        <input type="text" placeholder="Phone, email, or username" wire:model='form.email'
+                            type="email" name="email"
+                            class="px-5 py-3 rounded-md border border-slate-700 w-full bg-black">
+                        <input type="password" placeholder="Password" wire:model='form.password' name="password"
+                            class="px-5 py-3 rounded-md border border-slate-700 w-full bg-black">
 
                         <button class="bg-white rounded-full w-full py-2 text-black font-bold">Next</button>
                     </form>
 
 
-                    <div class="w-full py-2">
-                        <a href="{{ route('register') }}"
-                            class="border border-slate-700 rounded-full font-bold py-2">Forgot
-                            password?</a>
-                    </div>
+                    <div class="pb-24">
+                        <div class="w-full py-2 border border-slate-700 rounded-full my-5">
+                            <a href="{{ route('register') }}" class="w-full font-bold py-2">Forgot
+                                password?</a>
+                        </div>
 
+                        <p>Don't have an account? <a href="{{ route('register') }}"
+                                class="text-blue-600 hover:underline">Sign up</a></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!-- Session Status -->
+<x-auth-session-status class="mb-4" :status="session('status')" />
 
-    {{-- <form wire:submit="login">
+{{-- <form wire:submit="login">
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -186,4 +195,3 @@ new #[Layout('layouts.guest')] class extends Component {
             </x-primary-button>
         </div>
     </form> --}}
-</div>

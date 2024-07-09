@@ -176,7 +176,8 @@ new class extends Component {
     </div>
 
     @if (Auth::user())
-        <div class="flex py-3 space-x-2 transition duration-75 hover:delay-100 hover:bg-gray-900">
+        <div
+            class="flex px-4 py-2 mb-3 space-x-2 transition duration-75 hover:delay-100 rounded-full hover:bg-gray-900">
             <div>
                 <div class="w-12 h-12 bg-gray-400 rounded-full"></div>
             </div>
